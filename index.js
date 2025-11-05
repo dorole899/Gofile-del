@@ -15,7 +15,6 @@ program
   .option('-o, --output <file>', 'Custom output file', 'valid_codes.txt')
   .option('-d, --delay <ms>', 'Delay between requests in milliseconds', '1000')
   .option('-v, --verbose', 'Show detailed progress information')
-  .option('-h, --help', 'Show help message')
   .action(async (options) => {
     try {
       // Parse delay as integer
