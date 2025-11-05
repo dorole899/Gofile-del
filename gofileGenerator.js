@@ -139,6 +139,14 @@ class GofileGenerator {
 
   // Save valid code to output file
   async saveValidCode(fileInfo) {
+    // Check for duplicates before saving
+    if (this.existingCodes.has(fileInfo.code)) {
+      if (this.verbose) {
+        console.log(`Duplicate found, skipping: ${fileInfo.code}`);
+      }
+      return;
+    }
+
     try {
       const line = `${fileInfo.url} | ${fileInfo.filename} | ${fileInfo.size} | ${fileInfo.downloads} downloads\n`;
 
